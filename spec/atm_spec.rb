@@ -1,4 +1,5 @@
 require './lib/atm.rb'
+require 'date'
 
 describe ATM do
     let(:account) { instance_double('Account') }
@@ -13,8 +14,14 @@ describe ATM do
     end
 
     it'reduce amount on withdraw' do
-        subject.withdraw 50
+        subject.withdraw(50, account)
         expect(subject.funds).to eq 950
     end
+
+    it'allow withdrawal if account has enough balance' do
+        expected_output = {status: true, message: 'success', date: Date.today, amount: 45}
+        expect(subject.withdraw(45,account)).to eq expected_output
+    end
+
    
 end
