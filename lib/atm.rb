@@ -14,7 +14,4 @@ class ATM
         {status: true, message: 'success', date: Date.today, amount: amount}
         end
     end
-
-
-
 end
