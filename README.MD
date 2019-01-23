@@ -14,3 +14,7 @@ I want to receive a message with my withdrawal details
 As an ATM Operator 
 In order for the right person to make a withdrawal
 I want each person to have an seperate account
+
+As a ATM operator
+In order for our costumers to withdraw funds
+I need make sure that we only allow withdrawals if there are funds available
