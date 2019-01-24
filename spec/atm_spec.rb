@@ -19,7 +19,7 @@ describe ATM do
     end
 
     it'allow withdrawal if account has enough balance' do
-        expected_output = {status: true, message: 'success', date: Date.today, amount: 45}
+        expected_output = {status: true, message: 'success', date: Date.today, amount: 45, bills: [20, 20, 5]}
         expect(subject.withdraw(45, '1234', account)).to eq expected_output
     end
 
