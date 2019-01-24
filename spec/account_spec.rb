@@ -10,8 +10,6 @@ require 'date'
       expect(subject.account_owner). to eq person 
     end 
 
-
-
     it'check length of a number' do
     number_length = Math.log10(subject.pin_code).to_i + 1
     expect(number_length).to eq 4
@@ -30,20 +28,6 @@ require 'date'
       subject.deactivate
       expect(subject.account_status).to eq :deactivated
     end
-
-    it 'is expected to raise error if no owner is set' do
-      expect { described_class.new}.to raise_error 'An Account owner is required' 
-    end  
-    describe 'can create an Account' do
-      before { subject.create_account }
-      it 'of Account class ' do
-        expect(subject.account).to be_an_instance_of Account
-      end
-  
-      it 'with himself as an owner' do
-        expect(subject.account.owner).to be subject
-      end
-
   end
 
 

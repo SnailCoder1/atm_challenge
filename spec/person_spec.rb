@@ -1,4 +1,5 @@
 require './lib/person'
+require 'date'
 
 describe Person do 
     subject { described_class.new(name: 'Thomas') }
@@ -15,29 +16,30 @@ describe Person do
       expect(subject.cash).to eq 0
     end
   
-    it 'is expected to have a :account attribute' do
+    it 'is expected to have a :account attribute but no account' do
       expect(subject.account).to be nil
     end
 
-
-  describe 'can create an Account' do
+describe 'can create an Account' do
+  
     before { subject.create_account }
     it 'of Account class ' do
       expect(subject.account).to be_an_instance_of Account
     end
 
     it 'with himself as an owner' do
-        expect(subject.account.owner).to be subject
+        expect(subject.account.account_owner).to be subject
       end
-    end
+  end
   
     describe 'can manage funds if an account been created' do
-      let(:atm) { Atm.new }
+      let(:atm) { ATM.new }
     
       before { subject.create_account }
       it 'can deposit funds' do
         expect(subject.deposit(100)).to be_truthy
       end
+    end
   
     describe 'can not manage funds if no account been created' do
       
@@ -45,7 +47,5 @@ describe Person do
         expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
       end
     end
-
-  
 end
 

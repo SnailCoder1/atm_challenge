@@ -21,8 +21,8 @@ class Account
     def set_owner (obj)
         obj == nil ? missing_owner  : @account_owner= obj
     end 
-def missing_owner
+    
+    def missing_owner
     raise "An Account owner is required"
-end
-
+    end
 end
