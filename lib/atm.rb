@@ -33,6 +33,7 @@ class ATM
         @funds -= amount
         {status: true, message: 'success', date: Date.today, amount: amount, bills: add_bills(amount)}
     end
+    
     def add_bills(amount)
         denominations =  [20, 10, 5]
         bills =  []
@@ -44,7 +45,6 @@ class ATM
         end
         bills
     end
-
 
     def insufficient_funds_in_atm? (amount)
         @funds < amount
