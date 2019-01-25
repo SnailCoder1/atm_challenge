@@ -34,6 +34,16 @@ require 'date'
     it 'is expected to raise error if no owner is set' do
       expect { described_class.new}.to raise_error 'An Account owner is required' 
     end  
+    describe 'can create an Account' do
+      before { subject.create_account }
+      it 'of Account class ' do
+        expect(subject.account).to be_an_instance_of Account
+      end
+  
+      it 'with himself as an owner' do
+        expect(subject.account.owner).to be subject
+      end
+
   end
 
 
