@@ -3,6 +3,7 @@ class Account
     STANDARD_VALIDITY_YRS = 5
 
     def initialize (attr = {})
+    @balance = 0
     @pin_code = rand(1000..9999)
     @exp_date = set_expire_date
     @account_status = :active
