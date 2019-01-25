@@ -8,7 +8,6 @@ class Account
     @exp_date = set_expire_date
     @account_status = :active
     set_owner (attr[:account_owner])
-
     end
 
     def set_expire_date

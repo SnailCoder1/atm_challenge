@@ -2,32 +2,33 @@ require './lib/account.rb'
 require 'date'
 
 
-  describe Account do
-    let(:person){instance_double('Person', name: 'Thomas')}
-    subject { described_class.new({account_owner: person})}
+describe Account do
+  let(:person){instance_double('Person', name: 'Thomas')}
+  subject { described_class.new({account_owner: person})}
 
-    it 'is expected to have an owner' do
-      expect(subject.account_owner). to eq person 
-    end 
+  it'is expected to have an owner' do
+    expect(subject.account_owner). to eq person 
+  end 
 
-    it'check length of a number' do
+  it'check length of a number' do
     number_length = Math.log10(subject.pin_code).to_i + 1
     expect(number_length).to eq 4
-    end
+  end
     
-    it'is expected to have an expiry date on initialize' do 
+  it'is expected to have an expiry date on initialize' do 
     expected_date = Date.today.next_year(5).strftime("%m/%y")
     expect(subject.exp_date).to eq expected_date
-    end
-
-    it'is expected to have :active status on initialize' do
-      expect(subject.account_status).to eq :active
-    end
-
-    it'deactivates account using Instance method' do
-      subject.deactivate
-      expect(subject.account_status).to eq :deactivated
-    end
   end
+
+  it'is expected to have :active status on initialize' do
+    expect(subject.account_status).to eq :active
+  end
+
+  it'deactivates account using Instance method' do
+    subject.deactivate
+    expect(subject.account_status).to eq :deactivated
+  end
+  
+end
 
 
